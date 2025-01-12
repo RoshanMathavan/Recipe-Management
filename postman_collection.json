@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "recipe-api-collection",
+		"name": "Recipe Management API",
+		"description": "API documentation for Recipe Management CRUD operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Recipes",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://localhost:5000/api/recipes",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5000",
+					"path": ["api", "recipes"]
+				},
+				"description": "Retrieve all recipes from the database"
+			}
+		},
+		{
+			"name": "Get Single Recipe",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://localhost:5000/api/recipes/:id",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5000",
+					"path": ["api", "recipes", ":id"],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "Recipe ID"
+						}
+					]
+				},
+				"description": "Retrieve a specific recipe by ID"
+			}
+		},
+		{
+			"name": "Create Recipe",
+			"request": {
+				"method": "POST",
+				"url": {
+					"raw": "http://localhost:5000/api/recipes",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5000",
+					"path": ["api", "recipes"]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Spaghetti Carbonara\",\n    \"ingredients\": [\"spaghetti\", \"eggs\", \"pecorino cheese\", \"guanciale\", \"black pepper\"],\n    \"instructions\": \"1. Cook pasta\\n2. Mix eggs and cheese\\n3. Combine with pasta\",\n    \"cookingTime\": 30,\n    \"difficulty\": \"Medium\",\n    \"servings\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"description": "Create a new recipe"
+			}
+		},
+		{
+			"name": "Update Recipe",
+			"request": {
+				"method": "PUT",
+				"url": {
+					"raw": "http://localhost:5000/api/recipes/:id",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5000",
+					"path": ["api", "recipes", ":id"],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "Recipe ID"
+						}
+					]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updated Recipe Title\",\n    \"cookingTime\": 45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"description": "Update an existing recipe"
+			}
+		},
+		{
+			"name": "Delete Recipe",
+			"request": {
+				"method": "DELETE",
+				"url": {
+					"raw": "http://localhost:5000/api/recipes/:id",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5000",
+					"path": ["api", "recipes", ":id"],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "Recipe ID"
+						}
+					]
+				},
+				"description": "Delete a recipe by ID"
+			}
+		}
+	]
+}
